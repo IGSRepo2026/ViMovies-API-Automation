@@ -1,0 +1,29 @@
+{
+  "description": "Staging template. Set the base URLs (here or via .env) before running with TEST_ENV=staging.",
+  "variables": {
+    "apiBaseUrl": "{{SET_STAGING_API_BASE_URL}}",
+    "searchBaseUrl": "{{SET_STAGING_SEARCH_BASE_URL}}",
+    "webBaseUrl": "{{SET_STAGING_WEB_BASE_URL}}",
+    "packageBaseUrl": "{{SET_STAGING_PACKAGE_BASE_URL}}",
+    "tenantCode": "vfplay",
+    "productCode": "vfplay",
+    "deviceId": "11",
+    "displayLanguageCode": "eng",
+    "timezone": "Asia/Kolkata",
+    "clientType": "android",
+    "searchQuery": "love",
+    "liveSearchQuery": "news"
+  },
+  "bodyContract": {
+    "statusField": "status",
+    "successValues": [true, "SUCCESS", "success", "OK", "ok", 1],
+    "failureValues": [false, "FAILURE", "failure", "FAILED", "ERROR", "error", 0],
+    "dataField": "response",
+    "errorField": "error"
+  },
+  "sla": {
+    "defaultMs": 3000,
+    "overrides": {}
+  },
+  "strictHttpErrors": false
+}

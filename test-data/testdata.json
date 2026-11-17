@@ -1,0 +1,67 @@
+{
+  "pages": {
+    "static": ["home", "search", "sports", "originals"],
+    "nonExistent": "this-page-does-not-exist-qa-0001"
+  },
+  "search": {
+    "validTerms": ["love", "action", "news"],
+    "noResultTerm": "zzqxjvwkpfq-no-such-title-0001",
+    "unicodeTerm": "प्यार",
+    "buckets": ["movie", "grouplist", "channel"],
+    "invalidBucket": "not_a_bucket",
+    "pageSizes": { "min": 1, "default": 12, "max": 100, "zero": 0, "negative": -1, "huge": 2147483648 }
+  },
+  "sectionData": {
+    "offsets": [-1, 0, 15],
+    "counts": { "min": 1, "default": 15, "zero": 0, "negative": -5, "large": 1000, "nonNumeric": "abc" }
+  },
+  "negative": {
+    "invalidSessionId": "00000000-0000-0000-0000-000000000000",
+    "invalidBoxId": "invalid-box-id-qa",
+    "invalidTenantCode": "no_such_tenant",
+    "invalidProductCode": "no_such_product",
+    "invalidClientType": "toaster",
+    "invalidLangCode": "xyz",
+    "invalidPasscode": "000000",
+    "invalidOtp": "000000",
+    "invalidReferenceId": "qa-invalid-reference-0001",
+    "invalidPollKey": "qa-invalid-poll-key-0001",
+    "invalidOrderId": "QA-ORDER-DOES-NOT-EXIST-0001",
+    "invalidPackageId": "QA-PKG-DOES-NOT-EXIST",
+    "invalidPath": "movie/qa-no-such-content-0001",
+    "invalidBuildId": "qa-invalid-build-id",
+    "invalidSlug": "qa-no-such-movie-0001",
+    "invalidFavouriteAction": "99",
+    "invalidLoginMode": 99,
+    "invalidMobiles": ["", "abc", "12", "+91123456789012345678901234567890", "+91 98-76 543"],
+    "randomLoginId": "qa_nonexistent_user_0001@example.invalid",
+    "wrongLoginKey": "qa-wrong-login-key-0001"
+  },
+  "edge": {
+    "empty": "",
+    "whitespace": "   ",
+    "longStringLength": 5000,
+    "unicode": "😀✓ünïcødé",
+    "specialChars": "!@#$%^&*()_+-=[]{}|;':\",./<>?`~",
+    "nullString": "null",
+    "zero": "0",
+    "negative": "-1",
+    "maxInt": "2147483648",
+    "float": "1.5",
+    "timestamps": { "zero": "0", "negative": "-1", "farFuture": "99999999999999", "nonNumeric": "abc" }
+  },
+  "security": {
+    "sqli": ["' OR '1'='1", "1; DROP TABLE users--", "\" OR \"\"=\"", "1' UNION SELECT NULL--"],
+    "nosqli": ["{\"$ne\":null}", "{\"$gt\":\"\"}"],
+    "xss": ["<script>alert(1)</script>", "\"><img src=x onerror=alert(1)>", "javascript:alert(1)"],
+    "pathTraversal": ["../../../../etc/passwd", "..%2f..%2f..%2fetc%2fpasswd", "....//....//etc/passwd"],
+    "commandInjection": ["; ls -la", "| id", "$(whoami)", "`id`"],
+    "ssti": ["qa{{7*7}}qa", "qa${7*7}qa", "qa<%= 7*7 %>qa", "qa#{7*7}qa"],
+    "crlf": ["qa%0d%0aX-Injected:%20true"],
+    "tamperedSessions": ["' OR '1'='1", "eyJhbGciOiJub25lIn0.eyJ1c2VyIjoiYWRtaW4ifQ.", "../../admin", "null"],
+    "evilOrigin": "https://evil.example.com",
+    "openRedirectParams": ["redirect", "redirect_uri", "returnUrl", "next", "url"],
+    "largePayloadBytes": 1048576,
+    "rateLimitAttempts": 6
+  }
+}

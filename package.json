@@ -1,0 +1,31 @@
+{
+  "name": "vimtv-api-tests",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright API automation for the VIMTV Web API collection (functional, status-code, response-time and basic security checks)",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:positive": "playwright test --grep @positive",
+    "test:negative": "playwright test --grep @negative",
+    "test:edge": "playwright test --grep @edge",
+    "test:status": "playwright test --grep @status",
+    "test:security": "playwright test --grep @security",
+    "test:perf": "playwright test --grep @perf",
+    "list": "playwright test --list",
+    "typecheck": "tsc --noEmit",
+    "report": "playwright show-report reports/html",
+    "allure:generate": "allure generate --output reports/allure-report reports/allure-results",
+    "allure:open": "allure open reports/allure-report",
+    "rtm": "node tools/generate-rtm.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "allure": "3.20.1",
+    "allure-playwright": "3.11.0",
+    "@types/node": "22.10.2",
+    "dotenv": "16.4.7",
+    "exceljs": "4.4.0",
+    "typescript": "5.7.2"
+  }
+}
